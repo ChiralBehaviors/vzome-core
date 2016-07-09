@@ -40,6 +40,16 @@ configurations {
 
 // Support for decoupled "regression" task
 sourceSets {
+	main {
+		java {
+			srcDir 'src/main/java'
+			exclude 'com/vzome/core/**/*PythonScript.java'
+			exclude 'com/vzome/core/**/*ZomicScript.java'
+			exclude 'com/vzome/core/zomic/ZomicASTCompiler.java'
+			exclude 'com/vzome/core/parts/ZomicStrutGeometry.java'
+			exclude 'com/vzome/core/viewing/ScriptedShapes.java'
+		}
+	}
     regression {
         java.srcDir file('src/regression/java')
     }
@@ -47,11 +57,11 @@ sourceSets {
 
 
 dependencies {
-    compile     group: 'org.antlr',         name: 'antlr4',            version:'4.5'
+//    compile     group: 'org.antlr',         name: 'antlr4',            version:'4.5'
     compile     group: 'java3d',            name: 'vecmath',           version:'1.6.0-pre12'
-    compile     group: 'org.python',        name: 'jython',            version:'2.7-b4'
+//    compile     group: 'org.python',        name: 'jython',            version:'2.7-b4'
 
-    runtime     group: 'org.python',        name: 'jython',            version:'2.7-b4'
+//    runtime     group: 'org.python',        name: 'jython',            version:'2.7-b4'
     runtime     group: 'java3d',            name: 'vecmath',           version:'1.6.0-pre12'
 
 	testCompile group: 'antlr',             name: 'antlr',             version:'2.7.7'
@@ -231,7 +241,7 @@ task compileAntlrGrammars(type: JavaExec , dependsOn: makeAntlrOutputDir) {
 }
 
 compileJava {
-    dependsOn compileAntlrGrammars
+//    dependsOn compileAntlrGrammars
     // this net line isn't technically needed unless the antlr4.destinationDir is not under buildDir, but it doesn't hurt either
     source antlr4.destinationDir
 }

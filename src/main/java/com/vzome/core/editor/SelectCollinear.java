@@ -1,18 +1,19 @@
 package com.vzome.core.editor;
 
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.logging.Level;
+
+import org.w3c.dom.Element;
+
 import com.vzome.core.algebra.AlgebraicVector;
 import com.vzome.core.commands.Command;
 import com.vzome.core.commands.Command.Failure;
 import com.vzome.core.commands.XmlSaveFormat;
-import static com.vzome.core.editor.ChangeSelection.logger;
 import com.vzome.core.math.DomUtils;
 import com.vzome.core.model.Connector;
 import com.vzome.core.model.RealizedModel;
 import com.vzome.core.model.Strut;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.logging.Level;
-import org.w3c.dom.Element;
 
 /**
  * @author David Hall
